@@ -62,7 +62,7 @@ import {
 	VectorKeyframeTrack,
 	sRGBEncoding
 } from 'three.module';
-import { toTrianglesDrawMode } from './BufferGeometryUtils.js';
+import { toTrianglesDrawMode } from 'BufferGeometryUtils.js';
 
 class GLTFLoader extends Loader {
 
