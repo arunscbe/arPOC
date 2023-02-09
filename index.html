@@ -44,7 +44,23 @@
 
 			init();
 			animate();
-			
+			function loadModel(){
+				let loader = new GLTFLoader();
+				loader.load('./assets/box.gltf',function(GLTFMesh){
+					let _mesh = GLTFMesh.scene;
+					mixer = new THREE.AnimationMixer( _mesh ); 
+					let _C = THREE.AnimationClip.findByName(GLTFMesh.animations,'CubeAction');
+       				mixer.clipAction( _C ).play(); 
+					console.log(_C);
+					// console.log('=====>',_mesh);
+					scene.add(_mesh);
+					_mesh.scale.set(50,50,50);
+					// render();
+				})
+			}
+			$("#button").click(function(){
+				loadModel();
+			});
 			function init() {
 
 				container = document.createElement( 'div' );
